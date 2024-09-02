@@ -1,18 +1,17 @@
 body{
     background-color:hsl(212, 45%, 89%);
-    display:flex;
+    display:flex; /*by default flex = row */
     justify-content: center;
     align-items: center;
     height: 100vh;
     
 }
 .main {
-    background-color: white;
+    background-color:hsl(0, 0%, 100%);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
-    width: 300px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    width: 375px;
   }
 
 .image{
@@ -23,19 +22,13 @@ body{
 .bold-font{
     font-size: 21px;
     font-style:normal;
-    font-weight: bolder;
+    font-weight: 800;
     font-family: Arial, Helvetica, sans-serif;
-    color:hsl(218, 19%, 31%);
+    color:hsl(218, 44%, 22%);
   }
 span{
-    color:hsl(212, 8%, 56%);
+    color:hsl(220, 15%, 55%);
     font-family:Arial, Helvetica, sans-serif;
-}
-.attribution{
-    font-size: 11px;
-    text-align: center;
-    
-}
-.attribution a{
-    color: hsl(228, 45%, 44%);
+    font-weight: 550;
+    font-size: 16px;
 }
