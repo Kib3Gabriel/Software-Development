@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    background-color: white;
+}
+
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.navigation {
+    background-color: white;
+    width: 100%;
+    display: flex;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 8cap;
+    border-bottom: 2px solid red;
+}
+
+
+ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.part1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.part1 li{
+    margin-left: 35px;
+}
+
+.part2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav_part1, .nav_part2 {
+    margin-right: 20px;
+}
+
+.account {
+    border-radius: 50%;
+}
+.image{
+    width:20px;
+    height:20px;
+    margin-right: 20px;
+}
+
+.info{
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.account-shipping-payment{
+    background-color: aliceblue;
+    width:55%;
+    height: 75vh;
+    border-radius: 2%;
+    margin:20px;
+}
+.info-info{
+    font-size: 20px;
+}
+
+.info-info ul{
+    justify-content: space-between;
+    margin: 10px;
+}
+
+h3{
+    font-size: 23px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+form{
+    margin:10px
+}
+
+.labels{
+    color:gray;
+    font-weight: bold;
+    margin-top: 3px;
+    display: block;
+}
+
+.input{
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+    width:70%;
+    background-color: rgb(220, 235, 250);;
+}
+
+.register_login{
+    display: flex;
+    justify-content:right;
+    margin-right: 28.4%;
+    align-items: center; 
+    margin-top: 30px;
+}
+p{
+    margin-right: 30px;
+}
+hr{
+    margin-top: 80px;
+    background-color: rgb(168, 166, 166);
+    
+}
+.shipping{
+    display: flex;
+    justify-content:right;
+    margin-right: 28%;
+    margin-top:80px;
+    align-items: center;
+}
+button{
+    background-color:rgb(90, 90, 223);
+    border-radius: 5px;
+    color: white;
+    padding: 10px 15px 10px 15px;
+}
+.order{
+    background-color: aliceblue;
+    border-radius: 2%;
+    width:40%;
+    border-radius: 2%;
+    margin:20px;
+}
+.order-summary{
+    /* background-color: aliceblue; */
+    margin: 20px;
+    /* font-weight: 800; */
+}
+.heading{
+    font-weight: 550;
+}
+.item img{
+    width: 100%;
+    height: 16vh;
+}
+.name{
+    font-size: 15px;
+    font-weight: 550;
+}
+
+span{
+    font-weight: bolder;
+}
+.card{
+    width: 100%;
+    margin-top:20px;
+    font-weight: 550;
+    color:gray;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#gift_card{
+    background-color: rgb(220, 235, 250);
+    border:none;
+    border-radius: 5px;
+    height: 30px;
+}
+.apply{
+    background-color: white;
+    color:rgb(104, 193, 223);
+    border-color: rgb(104, 193, 223);
+}
+.cost{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}

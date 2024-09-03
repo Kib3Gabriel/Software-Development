@@ -1,0 +1,70 @@
+body{
+    background-color: #9bc4df;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 80vh;
+    
+}
+
+.main{
+    background-color: #d6eaf8;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* text-align: center; */
+    width: 250px;
+    padding: 20px;
+    height: 60%;
+    
+}
+
+img{
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+}
+
+.name{
+    font-size: 18px;
+    font-weight: 800;
+    margin-top:30px;
+    margin-bottom: 9px;
+}
+.designer{
+    text-align: center;
+    font-size: 15px;
+}
+
+.search{
+    background-color: white;
+    padding:0px;
+    border-radius: 20px;
+    width: 60%;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 5px;
+    border:none;
+    border-radius: 50px;;
+    font-family: Outfit;
+}
+.add{
+    font-size: 13px;
+    padding: 0;
+}
+
+.icons{
+    color: #5eaeeb;   
+    align-items: center; 
+}
+.icons-img{
+    width: 24px;
+    height: 24px;
+}
+
+i{
+    margin: 9px;
+}
+
