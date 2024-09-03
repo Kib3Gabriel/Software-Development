@@ -1,2 +1,2 @@
 Introduction to HTML and CSS.
-Decorating websites
+How to use tags. creating nav bar
