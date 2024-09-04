@@ -4,10 +4,7 @@ Types of tags, elements.creating nav bar
 **Task one achievements**<br>
 Styled a qr code<br>
 Used an apropriate background color and font<br>
-
-![Styled QR code](https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task1/task1.PNG=200*1000)
-<img src="https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task1/task1.PNG" alt="Styled QR code" width="100" height="100"
-
+<img src="https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task1/task1.PNG" alt="Styled QR code" width="400" height="300">
 
 **Task 2 achievements**<br>
 Insert images on a webpage<br>
