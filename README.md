@@ -19,6 +19,7 @@ Used divs to get a better layout arrangement<br>
 
 **Task 3 achievemtens**<br>
 Used flexbox layout to get a suitable layout.<br>
+navigation bar is styled to be sticky i.e will not scroll passed the screen when the content bwlow is scrolled up<br>
 styled divs to get apropriate lengths to the content in the divs<br>
 styled images in the divs.<br>
 
