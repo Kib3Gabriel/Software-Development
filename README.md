@@ -1,5 +1,5 @@
-**Introduction to HTML and CSS.**
-Types of tags, elements.creating nav bar
+**Introduction to HTML and CSS.**<br>
+##Types of tags, elements.creating nav bar
 
 **Task one achievements**<br>
 Styled a qr code<br>
