@@ -1,6 +1,7 @@
 body {
     margin: 0;
     background-color: white;
+    font-size: 20px;
 }
 
 
@@ -21,7 +22,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 8cap;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid rgb(157, 154, 154);
 }
 
 
@@ -70,32 +71,53 @@ ul {
 .account-shipping-payment{
     background-color: aliceblue;
     width:55%;
-    height: 75vh;
+    height: 76vh;
     border-radius: 2%;
     margin:20px;
+    align-items: center;
 }
 .info-info{
     font-size: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    
 }
 
 .info-info ul{
-    justify-content: space-between;
-    margin: 10px;
+    justify-content: center;
+    /* margin: 10px; */
 }
+
+.info-info img{
+    width: 20px;
+    height:20px;
+    margin-top: 3px;
+}
+.info-info hr{
+
+}
+.list{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 h3{
     font-size: 23px;
     margin-top: 20px;
-    margin-left: 10px;
 }
 form{
-    margin:10px
+    /* margin:20px; */
+    margin-left: 10%;
+    /* margin-right: 10%; */
 }
 
 .labels{
     color:gray;
     font-weight: bold;
-    margin-top: 3px;
+    margin-top: 10px;
     display: block;
 }
 
@@ -104,13 +126,14 @@ form{
     border: none;
     padding: 7px;
     width:70%;
-    background-color: rgb(220, 235, 250);;
+    height:30px;
+    background-color: rgb(220, 235, 250);
 }
 
 .register_login{
     display: flex;
     justify-content:right;
-    margin-right: 28.4%;
+    margin-right: 26%;
     align-items: center; 
     margin-top: 30px;
 }
@@ -125,8 +148,8 @@ hr{
 .shipping{
     display: flex;
     justify-content:right;
-    margin-right: 28%;
-    margin-top:80px;
+    margin-right: 26%;
+    margin-top:50px;
     align-items: center;
 }
 button{
@@ -143,9 +166,7 @@ button{
     margin:20px;
 }
 .order-summary{
-    /* background-color: aliceblue; */
-    margin: 20px;
-    /* font-weight: 800; */
+    margin: 30px;
 }
 .heading{
     font-weight: 550;
