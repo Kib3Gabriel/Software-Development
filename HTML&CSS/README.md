@@ -13,7 +13,7 @@ Suitable layout<br>
 
 Styled a navigation bar<br>
 Used divs to get a better layout arrangement<br>
-![simple dashboard](https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task2/dashboard.PNG)
+![simple dashboard](https://github.com/Kib3Gabriel/Software-Development/blob/main/HTML%26CSS/task2/dashboard.PNG)
 
 **Task 3 achievemtens**<br>
 Used flexbox layout to get a suitable layout.<br>
