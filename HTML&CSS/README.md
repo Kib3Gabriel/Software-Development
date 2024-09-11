@@ -31,4 +31,9 @@ The below part<br>
 ![below webpage when half full on screen](https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task3/task3HalfScreenBelow.PNG)
 
 
+**Task 4**<br>
+Used the grid layout to style the content.Assigned the main grid container height and width values. Styled the grid elements <br>
+![Grid](https://github.com/Kib3Gabriel/HTML-CSS/blob/main/task4/task4.PNG)
+
+
 
