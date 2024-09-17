@@ -78,9 +78,8 @@ const objects = [{ a: 1, b: 2, c: 3 }, { a: 4, b: 5, c: 6 }];
 console.log(extractProperties(objects, 'a', 'c'));
 
 
-// // Q4
+// //Q4 alternative method without spread
 // function extractProperties(objects, ...properties){
-//     // const newObject = [...objects ]
 //     return objects.map(obj =>{
 //         let newObj ={};
 //         properties.forEach(prop =>{
