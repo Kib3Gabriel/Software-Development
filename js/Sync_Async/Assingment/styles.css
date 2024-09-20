@@ -65,8 +65,7 @@ body h2 {
  
 }
 .main img:hover {
-    transform: scale(1.05);
-    opacity: 0.85;
+    opacity: 0.88;
 }
 
 .info {

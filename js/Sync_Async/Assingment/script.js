@@ -90,8 +90,7 @@ filterBtnJs.onclick = () => {
   const filterValue = Number(inputFilter);  //converts the string into a numeric datatype
 
   if (!isNaN(filterValue)) {
-    const filteredEvents = events.filter(event => event.price >= filterValue);
-
+    const filteredEvents = events.filter(event => event.price >= filterValue)
     
     displayEvents(filteredEvents);
   } else {
