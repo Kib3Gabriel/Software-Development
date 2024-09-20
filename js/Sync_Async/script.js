@@ -42,7 +42,7 @@ function done(){
 delayedMessage(done)
 
 
-console.log("------------------login user----------------------------------");
+console.log("------------------Callback-------------------------------");
 function loginUser(email,password, callbackFn){
     setTimeout(() =>{
         console.log("We have logged into Netflix");
@@ -85,10 +85,10 @@ loginUser("job@gmail.com", "password", (user) => {
 
 
 
-// function printEven(callbackFn, ...numbers){
-//     const filteredNumbers = numbers.filter((nums) => typeof nums === 'number' && callbackFn)
-//     return filteredNumbers
+function printEven(callbackFn, ...numbers){
+    const filteredNumbers = numbers.filter((nums) => typeof nums === 'number' && callbackFn)
+    return filteredNumbers
 
-// }
-// const isEven =(num) => num%2 ===0
-// console.log(printEven(isEven,1,2,3,4,5,6,7,8,9,10));   
+}
+const isEven =(num) => num%2 ===0
+console.log(printEven(isEven,1,2,3,4,5,6,7,8,9,10));
