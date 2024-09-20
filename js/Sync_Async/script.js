@@ -15,70 +15,71 @@ function addCallback(z, callbackFn){
 // console.log(add(10,10));
 console.log(addCallback(10,add));
 
-// function greet(name, callback){
-//     console.log(`Hello ${name}`)
-//     callback();
-// }
+function greet(name, callback){
+    console.log(`Hello ${name}`)
+    callback();
+}
 
-// function sayGoodbye(){
-//     console.log("Goodbye");
-// }
+function sayGoodbye(){
+    console.log("Goodbye");
+}
 
-// greet("John", sayGoodbye)
-
-
-// // Asynchronous operation , setTimeout:
-// function delayedMessage(callback){
-//     setTimeout(() =>{
-//         console.log("This message is delayed by 2sec..");
-//         callback();  //gets executed after above console.log()
-//     }, 2000);
-// }
-
-// function done(){
-//     console.log("Done with the delay!");
-// }
-
-// delayedMessage(done)
+greet("John", sayGoodbye)
 
 
-// function loginUser(email,password, callbackFn){
-//     setTimeout(() =>{
-//         console.log("We have logged into Netflix");
-//         callbackFn({userEmail: email });   
-//     }, 1000);
-// }
+// Asynchronous operation , setTimeout:
+function delayedMessage(callback){
+    setTimeout(() =>{
+        console.log("This message is delayed by 2sec..");
+        callback();  //gets executed after above console.log()
+    }, 2000);
+}
 
-// function recentWatchedVideo({userEmail},callbackFn){
-//     setTimeout(() =>{
-//         console.log("We have all the recently watched videos");
-//         callbackFn({
-//             userEmail,
-//             videos:["star wars", "The Mando", "The Lord of The Rings"],
-//         });
-//     }, 1000)
-// }
+function done(){
+    console.log("Done with the delay!");
+}
 
-// // Simulate getting details of one video
-// function getDetailsOfOneVideo(videos, callbackFn) {
-//     setTimeout(() => {
-//       console.log("We are getting the details of one video");
-//       callbackFn({ video: videos.videos[1] });
-//     }, 1000);
-//   }
+delayedMessage(done)
+
+
+console.log("------------------login user----------------------------------");
+function loginUser(email,password, callbackFn){
+    setTimeout(() =>{
+        console.log("We have logged into Netflix");
+        callbackFn({userEmail: email });   
+    }, 1000);
+}
+
+function recentWatchedVideo({userEmail},callbackFn){
+    setTimeout(() =>{
+        console.log("We have all the recently watched videos");
+        callbackFn({
+            userEmail,
+            videos:["star wars", "The Mando", "The Lord of The Rings"],
+        });
+    }, 1000)
+}
+
+// Simulate getting details of one video
+function getDetailsOfOneVideo(videos, callbackFn) {
+    setTimeout(() => {
+      console.log("We are getting the details of one video");
+      callbackFn({ video: videos.videos[1] });
+    }, 1000);
+  }
   
-//   // Execute the sequence of asynchronous operations
-// loginUser("job@gmail.com", "password", (user) => {
-//     console.log(user);
+  // Execute the sequence of asynchronous operations
+loginUser("job@gmail.com", "password", (user) => {
+    console.log(user);
   
-//     recentWatchedVideo(user, (videos) => {
-//       console.log(videos);
+    recentWatchedVideo(user, (videos) => {
+      console.log(videos);
   
-//       getDetailsOfOneVideo(videos, (videoDetails) => {
-//         console.log("This is the info of: ", videoDetails.video);
-//       });
-//     });
-// });
+      getDetailsOfOneVideo(videos, (videoDetails) => {
+        console.log("This is the info of: ", videoDetails.video);
+      });
+    });
+});
 
 
 
