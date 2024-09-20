@@ -1,0 +1,23 @@
+{
+    "music": [
+      {
+        "id": 1,
+        "title": "Smells Like Teen Spirit",
+        "artist": "Nirvana",
+        "year": 1991
+      },
+      {
+        "id": 2,
+        "title": "Billie Jean",
+        "artist": "Michael Jackson",
+        "year": 1982
+      },
+      {
+        "id": 3,
+        "title": "I Will Survive",
+        "summary": "Gloria Gaynor",
+        "year": 1978
+      }
+    ]
+  }
+  
