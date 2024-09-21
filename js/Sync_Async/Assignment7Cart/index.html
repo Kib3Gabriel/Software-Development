@@ -1,170 +1,40 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>DOM manipulation</title>
+    
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<style>
-    /* Consistent product card design with more padding for easier readability */
-    .products {
-        width: 320px;
-        padding: 15px;
-        border-radius: 10px;
-        background-color: #f0f0f0;
-        margin: 20px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
-        transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
-    }
-    
-    .products:hover {
-        transform: translateY(-5px); /* Visual feedback for hover */
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
-    }
+    <div class="main">
+        <h2 class="heading">Event</h2>
+        <div class="filter-cart">
+            <div class="filter-option">
+                <input class="filterByPrice" type="number" placeholder="Filter by price">
+                <input class="filterByLocation" type="text" placeholder="Filter by location">
+                <!-- <input class="filterByDate" type="date" placeholder="Filter by date"> -->
+                <button class="filterBtn">Apply Filter</button>
+                <button class="reset-btn">Reset</button>
+            </div>
+            <!-- <button class="cart-btn"><a href="#cart-container">Cart</a></button> -->
+            <a href="#cart-container"><i class="fa-solid fa-cart-shopping"></i></a></i>
+        </div>
+        <div class="product-container">
+            
+        </div>
 
-    /* Adjust image size for better consistency and spacing */
-    #image {
-        width: 100%;
-        height: 250px;
-        object-fit: cover; /* Makes images fill the box uniformly */
-        border-radius: 8px;
-    }
-
-    /* Align items using flexbox for a clean layout */
-    #container, #cart-container, #cart-list {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: center;
-        margin: 20px;
-    }
-
-    /* Readable product description */
-    p {
-        text-align: center;
-        font-size: 16px;
-        font-family: 'Arial', sans-serif;
-        color: #333;
-    }
-
-    /* Button for buying products with improved accessibility */
-    .btnBuy {
-        width: 100%;
-        height: 45px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: 700;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .btnBuy:hover {
-        background-color: #0056b3;
-        color: #fff;
-    }
-
-    /* Improved navigation bar for better visibility and consistency */
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        padding: 10px 30px;
-        font-family: 'Arial', sans-serif;
-        background-color: #1a1a1a;
-        color: #fff;
-        align-items: center;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-        font-size: 18px;
-    }
-
-    /* Enhanced buttons for filtering products */
-    section {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    #below35, #above35 {
-        width: 180px;
-        height: 40px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 16px;
-        cursor: pointer;
-        margin: 0 10px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    #below35:hover, #above35:hover {
-        background-color: #218838;
-    }
-
-    /* Cart container styling with clear sections */
-    #cart-container {
-        margin-top: 20px;
-        width: 90%;
-        max-width: 1200px;
-        padding: 20px;
-        background-color: #5fd524;
-        border-radius: 10px;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .cart-item {
-        width: 300px;
-        margin: 15px;
-        padding: 15px;
-        border: 1px solid #ddd;
-        background-color: white;
-        border-radius: 8px;
-        transition: box-shadow 0.3s ease;
-    }
-
-    .cart-item:hover {
-        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Ensure all buttons have a clear and consistent style */
-    button, .btnBuy {
-        font-family: 'Arial', sans-serif;
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-</style>
-
-    <div class="nav">
-        <h1 class="logo"> <a href="#container">Products</a></h1>
-        <h1 class="cart"> <a href="#cart-container">Cart<span style="color: red; margin-left: 10px;" id="cart-items">0</span></a></h1>
-    </div>
-
-    <section>
-        <button id="below35">Price < $50</button>
-        <button id="above35">Price > $50</button>
-    </section>
-
-    <div id="container">
-        <!-- Products will be rendered here -->
+        <div id="cart-container">
+            <h2>Cart</h2>
+            <div id="cart-list">
+            </div>
+            <p id="total-price">Total: $0.00</p>
+        </div>
     </div>
     
-    <div id="cart-container">
-        <h2>Your Cart</h2>
-        <div id="cart-list"></div> <!-- Cart items will be rendered here -->
-        <p>Total items in cart: <span id="cart-items-count">0</span></p>
-    </div>
-
     <script src="script.js"></script>
 </body>
-</html>
+</html> 

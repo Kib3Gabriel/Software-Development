@@ -1,239 +1,132 @@
-const btnAbove35 = document.getElementById("below35");
-const btnBelow35 = document.getElementById("above35");
+
+const container = document.querySelector(".product-container");
+const filterBtn = document.querySelector(".filterBtn");
+const cartPrice = document.querySelector("#total-price");
+const cartBtn = document.querySelector(".cart-btn");
+
+const filterPrice =document.querySelector(".filterByPrice");
+const filterLocation =document.querySelector(".filterByLocation");
+const filterDate =document.querySelector(".filterByDate");
+const resetBtn = document.querySelector(".reset-btn");
 
 const cartItems = [];
 
-document.addEventListener("DOMContentLoaded", ()=>{                 //automatically load the page
-    const container = document.querySelector("#container");
-})
+let events = [];
+fetch("http://localhost:3003/products")
+  .then((response) => {
+    if (!response.ok) {
+      console.log("Not successfully loaded");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    //data from the database is now in a readble format
+    // console.log(data);
 
+    events = data;
+    originalEvents = data;
+    renderItems(events);
+  });
 
-
-fetch("http://localhost:3000/products")
-    .then((res) =>{
-        if(!res.ok){
-            console.log("Not successfully Loaded");
-            throw new Error("Failed to fetch products");
-        }return res.json()
-    })
-    .then((data)=>{
-                
-  function renderItems(items)  {
-    container.innerHTML =""
-    items.map((item) =>{
-        const productHTML = `
+function renderItems(items) {
+  container.innerHTML = ""; // Clear the container before rendering items
+  items.map((item) => {
+    const productHTML = `
         <div class='products'>
-             <img id='image' src=${item.imageUrl} />
-              <p>${item.title}</p>    
-              <p>${item.location}</p>
-              <p>${item.company}</p>
-              <p>$${item.price}</p>
-              <button class="btnBuy" button-id="${item.id}">Buy now</button>
-        </div>
-            `;
-             
-            container.innerHTML += productHTML;
-    });
-    }
-
-    renderItems(data)
-
-    // let totalFilteredItemsCost = 0
-
-    function filterItems(){
-        const filteredItems = data.filter((item) => item.price <35);
-        renderItems(filteredItems)
-
-        totalFilteredItemsCost = filteredItems
-                             .map((item) => item.price)
-                             .reduce((acc, next)=> acc + next,0)
-                             console.log(totalFilteredItemsCost);
-
-    }
-
-
-
-    // filterItems()
-
-    btnBelow35.addEventListener("click", () =>{
-        filterItems();
-    })
-
-    // Add to Cart
-    const buyBtn = document.querySelectorAll(".btnBuy");  //buyBtn = array of buttons. To access all we use forEach
-    buyBtn.forEach((btn) =>{
-        btn.addEventListener("click", (event)=> {
-            const btnId = event.target.getAttribute("button-id")
-            const selectedItem = data.find((item) => item.id ==btnId)
-            // console.log(selectedItem);
-
-            cartItems.push(selectedItem)
-
-            renderCart();
-          
-        })
-    });
-
-    // Cart Items
-    const cartList = document.getElementById("cart-container");
-    function renderCart(){
-        cartList.innerHTML=""
-        cartItems.map((item, index) =>{
-            cartList.innerHTML += `
-            <div class='products'>
-             <img id='image' src=${item.imageUrl} />
-              <p>${item.title}</p>    
-              <p>${item.location}</p>
-              <p>${item.company}</p>
-              <p>$${item.price}</p>
-              <button class="del" data-index="${index}">Delete</button>
-        </div>
-            `
-            // cartList.innerHTML += cartDiv;  
-            
-            const deleteBtn = document.querySelectorAll(".del")
-            deleteBtn.forEach((item) => {
-                item.addEventListener("click", (e) =>{
-                    const index = e.target.getAttribute("data-index");
-                    cartItems.splice(index, 1);
-
-                    renderCart();
-                })
-            })
-        })
-
-    }
-
-
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let events =[];
-// fetch("http://localhost:3001/products")
-//   .then((res) =>{
-//     if (!res.ok){
-//       console.log("Lodding not successful!");
-//     }
-//     return res.json()
-//   })
-//   .then(data =>{
-//     events = data;
-//     displayEvents(events);
-//   })
-
-
-// function displayEvents(events){
-//   const container =document.getElementById("container");
-//   document.get
-
-//   events.forEach((event)=>{
-
-//     const card = document.createElement("div");
-//     card.className ="main"
-//     container.appendChild(card);
-
-//     const img = document.createElement("img");
-//     img.src = event.imageUrl;
+         <img id='image' src=${item.imageUrl} />
+          <p class="title">${item.title}</p>    
+          <p>${item.location}</p>
+          <p>${item.company}</p>
+          <p class="price">$${item.price}</p>
+          <button class="btnBuy" button-id="${item.id}">Buy now</button>
+    </div>
+        `;
+    container.innerHTML += productHTML;
+  });
+  attachAddToCartListeners();
+}
+
+// filter on price
+function filterItems() {
+    const maxPrice = parseFloat(filterPrice.value) || Infinity; // Get the max price from input
+    const filteredItems = events.filter((item) => item.price < maxPrice);
+    renderItems(filteredItems);
     
-//     card.appendChild(img)
+    resetBtn.style.display="block"
+}
 
-//     const info = document.createElement("div")
-//     info.className="info"
-//     card.appendChild(info)
-
-//     const titleJs = document.createElement("h2");
-//     titleJs.className = "heading"
-//     titleJs.textContent = event.title;    //title is called from the db.json
-//     info.appendChild(titleJs)
-
-//     const date = document.createElement("p");
-//     date.textContent = event.date;     //takes the date key from the event(which is an array of products)
-//     info.appendChild(date);
-
-//     const locationJs = document.createElement("p")
-//     locationJs.textContent = event.location;
-//     info.appendChild(locationJs);
-
-//     const companyJs = document.createElement("p");
-//     companyJs.textContent = event.company;
-//     info.appendChild(companyJs);
-
-//     const priceJs = document.createElement("p");
-//     priceJs.className="price"
-//     priceJs.textContent = `$ ${event.price}`;
-//     info.appendChild(priceJs)
-
-//     const buyButton= document.createElement("button")
-//     buyButton.className ="button"
-//     buyButton.textContent ="Buy"
-//     info.appendChild(buyButton)
-
-//   });
-// }
+filterBtn.addEventListener("click", () => {
+  filterItems();
+  
+});
 
 
-// const filterBtnJs = document.querySelector(".filterBtn");
+// Add to cart
+function attachAddToCartListeners() {
+  const buyBtns = document.querySelectorAll(".btnBuy");
+  buyBtns.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const btnId = event.target.getAttribute("button-id");
+      const selectedItem = events.find((item) => item.id == btnId);
 
-// filterBtnJs.onclick = () => {
-//   const inputFilter = document.querySelector(".inputFilter").value;
+     
+      if (selectedItem && !cartItems.some(item => item.id === selectedItem.id)) {
+        cartItems.push(selectedItem);
+        console.log(selectedItem);
+        renderCart();
 
-//   if (inputFilter.trim() === "") {  // Check if the input is empty
-//     alert("Input a number value");
-//     return;  // Exit the function if the input is empty
-//   }
+        
+      } else {
+        alert("Item already in cart!");
+      }
+    });
+  });
+}
 
-//   const filterValue = Number(inputFilter);  // Convert input value to a number
+// Render cart items
 
-//   const filterContainer = document.getElementById("filterContainer");
+const cartList= document.getElementById("cart-list")
+function renderCart() {
+  cartList.innerHTML = ""; // Clear the cart list before rendering
+  cartItems.map((item, index) => {
+    cartList.innerHTML += `
+        <div class='products'>
+          <img id='image' src=${item.imageUrl} />
+          <p class="title">${item.title}</p>    
+          <p>${item.location}</p>
+          <p>${item.company}</p>
+          <p class="price">$${item.price}</p>
+          <button class="del" data-index="${index}">Delete</button>
+        </div>`;
+  });
+  updateCartTotal();
+  // Attach delete functionality
+  attachDeleteListeners();
+}
+function updateCartTotal() {
+    const totalPrice = cartItems
+      .map((item) => item.price)
+      .reduce((acc, next) => acc + next, 0); // Calculate the total price
+    cartPrice.textContent = `Total: $${totalPrice.toFixed(2)}`; // Display total price
+  }
 
-//   if (!isNaN(filterValue)) {
-//     const filteredEvents = events.filter(event => event.price >= filterValue);
+  //Reset filter
+  resetBtn.addEventListener("click", () => {
+    filterPrice.value = ""; 
+    renderItems(originalEvents); 
+    updateCartTotal(); 
+    resetBtn.style.display ="none";
+  });
 
-//     // Display filtered events in the filterContainer
-//     displayEvents(filteredEvents, filterContainer);
-//   } else {
-//     alert("Please enter a valid number.");
-//   }
-// };
+// Attach delete listeners
+function attachDeleteListeners() {
+  const deleteBtns = document.querySelectorAll(".del");
+  deleteBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const index = e.target.getAttribute("data-index");
+      cartItems.splice(index, 1); // Remove item from cart
+      renderCart(); // Re-render cart
+    });
+  });
+}
+
