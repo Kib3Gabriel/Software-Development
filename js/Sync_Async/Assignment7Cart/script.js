@@ -33,11 +33,13 @@ function renderItems(items) {
     const productHTML = `
         <div class='products'>
          <img id='image' src=${item.imageUrl} />
-          <p class="title">${item.title}</p>    
-          <p>${item.location}</p>
-          <p>${item.company}</p>
-          <p class="price">$${item.price}</p>
-          <button class="btnBuy" button-id="${item.id}">Buy now</button>
+         <div class='content'>            
+            <p class="title">${item.title}</p>    
+            <p>${item.location}</p>
+            <p>${item.company}</p>
+            <p class="price">$${item.price}</p>
+            <button class="btnBuy" button-id="${item.id}">Buy now</button>
+         </div>
     </div>
         `;
     container.innerHTML += productHTML;

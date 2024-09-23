@@ -127,6 +127,17 @@ body {
 
 .products p {
   margin-left: 5px;
+  line-height: 25px;
+}
+
+.products .title{
+  font-size:20px;
+  font-weight: bold;
+}
+.products .content{
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
 }
 
 .products .price {
