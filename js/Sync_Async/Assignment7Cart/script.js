@@ -1,4 +1,3 @@
-
 const container = document.querySelector(".product-container");
 const filterBtn = document.querySelector(".filterBtn");
 const cartPrice = document.querySelector("#total-price");
@@ -84,10 +83,9 @@ function attachAddToCartListeners() {
 }
 
 // Render cart items
-
 const cartList= document.getElementById("cart-list")
 function renderCart() {
-  cartList.innerHTML = ""; // Clear the cart list before rendering
+  cartList.innerHTML = ""; 
   cartItems.map((item, index) => {
     cartList.innerHTML += `
         <div class='products'>
@@ -100,14 +98,13 @@ function renderCart() {
         </div>`;
   });
   updateCartTotal();
-  // Attach delete functionality
   attachDeleteListeners();
 }
 function updateCartTotal() {
     const totalPrice = cartItems
       .map((item) => item.price)
       .reduce((acc, next) => acc + next, 0); // Calculate the total price
-    cartPrice.textContent = `Total: $${totalPrice.toFixed(2)}`; // Display total price
+    cartPrice.textContent = `Total: $${totalPrice.toFixed(2)}`; 
   }
 
   //Reset filter
@@ -118,7 +115,7 @@ function updateCartTotal() {
     resetBtn.style.display ="none";
   });
 
-// Attach delete listeners
+// Delete function
 function attachDeleteListeners() {
   const deleteBtns = document.querySelectorAll(".del");
   deleteBtns.forEach((btn) => {
