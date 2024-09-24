@@ -95,6 +95,7 @@ const result:number =add(1,2);
 type test = Expect<Equal<typeof result, number>>;
 
 
+
 // Exercise 2: Annotating Empty Parameters
 const concatTwoStrings =(a:string,b:string)=>{
     return [a,b].join(" ");
@@ -128,21 +129,21 @@ const concatName =(user:{first:string, last:string}) =>{
 }
 
 it("should return the full name", () => {
-    const result = concatName({
+    const result3 = concatName({
       first: "John",
       last: "Doe",
     });
   
-    type test = Expect<Equal<typeof result, string>>;
+    type test = Expect<Equal<typeof result3, string>>;
   
-    expect(result).toEqual("John Doe");
+    expect(result3).toEqual("John Doe");
   });
 
 
 
 // Exercise 2: Optional Property Types
 
-const concatName = (user: { first: string; last?: string }) => {  
+const concatName2 = (user: { first: string; last?: string }) => {  
     if (!user.last) {
       return user.first;
     }
@@ -150,7 +151,7 @@ const concatName = (user: { first: string; last?: string }) => {
     return `${user.first} ${user.last}`;
   };
 
-const result = concatName({
+const result4 = concatName2({
     first:"John"
 })
 
@@ -172,25 +173,26 @@ const getRectangleArea = (rectangle: Rectangle) => {
   };
 
   it("should return the area of a rectangle", () => {
-    const result = getRectangleArea({
+    const result5 = getRectangleArea({
       width: 10,
       height: 20,
     });
   
-    type test = Expect<Equal<typeof result, number>>;
+    type test = Expect<Equal<typeof result5, number>>;
   
-    expect(result).toEqual(200);
+    expect(result5).toEqual(200);
   });
   
   it("should return the perimeter of a rectangle", () => {
-    const result = getRectanglePerimeter({
+    const result5 = getRectanglePerimeter({
       width: 10,
       height: 20,
     });
   
-    type test = Expect<Equal<typeof result, number>>;
-    expect(result).toEqual(60);
+    type test = Expect<Equal<typeof result5, number>>;
+    expect(result5).toEqual(60);
   });
+
 
 
 // Exercise 1: Array Type
@@ -208,6 +210,7 @@ processCart({
   userId: "user123",
   items: ["item1", "item2", "item3"],
 });
+
 
 
 // Exercise 2: Arrays of Objects
@@ -252,15 +255,15 @@ const setRange = (range: [number, number]) => {
 };
 
 // @ts-expect-error too few arguments
-
 setRange([0]);
-
 // @ts-expect-error too many arguments
 setRange([0,10,20])
 
 
+
+
 // Exercise 4 Optional Members of Turples
-const goToLocation = (coordinates: [number, number, number | undefined]) => {
+const goToLocation = (coordinates:[number, number, number | undefined]) => {
   const latitude = coordinates[0];
   const longitude = coordinates[1];
   const elevation = coordinates[2];
@@ -277,35 +280,59 @@ const goToLocation = (coordinates: [number, number, number | undefined]) => {
 
 
 
-// // Exercise 1: Passing Types to Map
+// Passing types of Functions
 
-// const userMap = new Map();
+// Exercise 1: Passing Types to Map
+// A map is a dictonary that stores a key and a value
+
+
+// type user={
+//   name:string;
+//   age:number;
+// };
+
+
+// const userMap = new Map<number,user>();
+
 
 // userMap.set(1, { name: "Max", age: 30 });
 
 // userMap.set(2, { name: "Manuel", age: 31 });
 
 // // @ts-expect-error
-// Unused '@ts-expect-error' directive.
 // userMap.set("3", { name: "Anna", age: 29 });
 
 // // @ts-expect-error
-// Unused '@ts-expect-error' directive.
 // userMap.set(3, "123");
 
 
-type User = {
+// Exercise 2: JSON.parse() Can't Receive Type Arguments
+const parsedData: {
   name: string;
   age: number;
+} = JSON.parse('{"name": "Alice", "age": 30}');
+
+
+// Typing Functions
+
+
+const logAlbumInfo = (
+  title: string,
+  trackCount: number,
+  isReleased: boolean,
+): string => {
+  return "John";
 };
 
-const userMap = new Map<number, User>();
-const userMap = new Map<number, { name: string; age: number }>();
+function getAlbumFormats(album: Album, ...formats: string[]) {
+  return `${album.title} is available in the following formats: ${formats.join(
+    ", ",
+  )}`;
+}
 
-
-
-// Exercise 2: JSON.parse() Can't Receive Type Arguments
-const parsedData = JSON.parse<{
-    name: string;
-    age: number;
-  }>('{"name": "Alice", "age": 30}');
+getAlbumFormats(
+  { artist: "Radiohead", title: "OK Computer", year: 1997 },
+  "CD",
+  "LP",
+  "Cassette",
+);

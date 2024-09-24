@@ -131,13 +131,13 @@ body {
 }
 
 .products .title{
-  font-size:20px;
+  font-size:24px;
   font-weight: bold;
 }
 .products .content{
   display: flex;
   flex-direction: column;
-  background-color: yellow;
+  align-items: center;
 }
 
 .products .price {
