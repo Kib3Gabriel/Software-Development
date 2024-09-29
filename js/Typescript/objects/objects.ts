@@ -363,3 +363,33 @@ notAllowed: {
 },
 };
 
+// Exercise 4: Dynamic Key Support
+
+// Consider this hasKey function that accepts an object and a key,
+// then calls object.hasOwnProperty on that object:
+const hasKey = (obj: object, key: string) => {
+  return obj.hasOwnProperty(key);
+};
+
+it("Should work on string keys", () => {
+  const obj = {
+    foo: "bar",
+  };
+
+  expect(hasKey(obj, "foo")).toBe(true);
+  expect(hasKey(obj, "bar")).toBe(false);
+});
+
+// Reducing Duplicates with utility Types
+
+// 1. PArtial
+
+interface AnotherAlbum {
+  id: number;
+  title: string;
+  artist: string;
+  releaseYear: number;
+  genre: string;
+}
+
+
