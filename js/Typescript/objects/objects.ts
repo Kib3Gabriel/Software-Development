@@ -185,127 +185,181 @@ interface Album4 {
     genres:["Concert Edition", "Party Edition"]
   }
 
+
 // Exercise 1: Create an Intersection Type
+type BaseEntity = {
+  id: string;
+  createdAt: Date;
+};
 
-type User3 = {
-    id: string;
-    createdAt: Date;
-    name: string;
-    email: string;
-  };
-  
-  type Product = {
-    id: string;
-    createdAt: Date;
-    name: string;
-    price: number;
-  };
+type User = {
+  name: string;
+  email: string;
+} & BaseEntity;
 
+type Product = {
+  name: string;
+  price: number;
+} & BaseEntity;
 
-//   More exercises
+// Exercise 2: Extending Interfaces
+interface BaseEntity2 {
+  id: string;
+  createdAt: Date;
+}
 
+interface User3 extends BaseEntity2 {
+  name: string;
+  email: string;
+}
 
+interface Product2 extends BaseEntity2 {
+  name: string;
+  price: number;
+}
 
+//Dynamic Object Keys
+// in TS, adding keys to objects leads to error
+// in jS its okay to do objectName.key = value
+//We need to tell TypeScript that we want to be
+//able to dynamically add keys
 
+const albumAwards = {}; //initializing an object
+// albumAwards.Grammy =true;   //results to an error unline in JS
 
-
-
-
-
-
-
-// Dynamic Keys
-//In TS, adding keys to values, leads to error
-// In JS, its okay to do objectName.key = value
-
-
-
-// const albumAwards ={};
-// albumAwards.Grammy = true;
-
-const albumAwards2:{
-    [index:string]:boolean | number | string
-}={};
-
-
+// 1 Using index signature for Dynamic keys
+const albumAwards2: {
+  [index: string]: boolean | number | string;
+} = {};
 albumAwards2["Best Album"] = true;
 albumAwards2["Release Year"] = 2023;
 albumAwards2["Artist"] = "John Doe";
-console.log(albumAwards2);
 
+const addToObject: {
+  [index: number]: string;
+} = {};
+addToObject[1] = "Gabriel";
+addToObject[2] = "Kibe";
 
-const albumAwards3:Record<string,boolean | number | string>={};
+// 2. Using a Record Type for Dynamic Keys
+const albumAwards3: Record<string, boolean> = {};
+albumAwards3.Grammy = true;
 
-
-albumAwards3["Best of  Album"] = true;
-albumAwards3["Release of the Year"] = 2023;
-albumAwards3["Artist"] = "John De Doe";
-console.log(albumAwards3);
-
-
-
-
-
-
-
-
-
-
-
-
-// Combining known and Dynamic keys
-type BaseAwards = "Granny" | "MercuryPrize" |"Billboard";
-
-type ExtendedAlbumAwards = Record<BaseAwards, boolean > &{
-    [award:string]: boolean;
+//record can use unions as keys
+const albumAwards1: Record<"Grammy" | "MercuryPrize" | "Billboard", boolean> = {
+  Grammy: true,
+  MercuryPrize: false,
+  Billboard: true,
 };
 
-const extendedNomainations: ExtendedAlbumAwards ={
-    Granny:true,
-    MercuryPrize:false,
-    Billboard: true,
-    "American Music Award": true
+type BaseAwards = "Grammy" | "MercuryPrize" | "Billboard";
+
+type ExtendedAlbumAwards = Record<BaseAwards, boolean> & {
+  [award: string]: boolean;
+};
+
+const extendedNominations: ExtendedAlbumAwards = {
+  Grammy: true,
+  MercuryPrize: false,
+  Billboard: true, // Additional awards can be dynamically added
+  "American Music Awards": true,
+};
+
+// interface
+interface BaseAwards2 {
+  Grammy: boolean;
+  MercuryPrize: boolean;
+  Billboard: boolean;
+}
+
+interface ExtendedInterface extends BaseAwards2 {
+  [award: string]: boolean;
+}
+
+// PropertyKey
+//  is a global type that represents the set of all possible keys that
+//  can be used on an object, including string, number, and symbol.
+type Album5 = {
+  [key: PropertyKey]: string;
+};
+
+// Exercises
+// Exercise1: Use an index Signature for Dynamic Keys
+const score: {
+  [index: string]: number;
+} = {};
+
+score.math = 95;
+score.english = 90;
+score.science = 85;
+
+// Alternatively using Recod
+const score2: Record<string, number> = {};
+score2.math = 95;
+score2.english = 90;
+score2.physics = 95;
+
+
+// Exercise 2: Default Properties with Dynamic Keys
+
+interface RequiredScore {
+  math: number;
+  english: number;
 }
 
 
-
-
-
-
-// Access properties declared as object type
-// Narrowing
-let obj : object={name:"Alice"};
-// obj.name  // brings an error
-// type assertion to access the property
-(obj as {name:string}).name  //Alice
-
-
-// object types in function
-function processValue(value:object){
-    console.log(value);
+interface Scores extends RequiredScore {
+  [index:string]: number;
 }
 
-
-type AlbumDeep = {
-    title: string;
-    artist: string;
-    releaseYear?: number;
-    genre?: {
-      parentGenre?: string;
-      subGenre?: string;
-    };
-  };
-  
-  type RequiredAlbum = Required<AlbumDeep>;
+const studentScores: Scores ={
+  math: 95,        
+  english: 90,     
+  chemistry: 85,   
+  CRE: 88,         
+  history: 92 
+}
+console.log(studentScores);
 
 
-//   Pick
-// Selects certain properties from type AlbumDeep
-type AlbumData = Pick<AlbumDeep, "title" | "artist">;
+// Exercise 3: Restricting Object Keys With Records
 
+// Here we have a configurations object, typed as Configurations
+//which is currently unknown.
+// The object holds keys for development, production, and staging, and 
+//each respective key is associated with configuration details such as 
+//apiBaseUrl and timeout.
+// There is also a notAllowed key, which is decorated with a @ts-expect-error 
+// comment. But currently, this is not erroring in TypeScript as expected.
 
-//Omit
-// Opposite of Pick
-// removes certain properties from type AlbumDeep
-type AlbumDataOmit =Omit<AlbumDeep, 'id' | 'releaseYear' | 'genre'>;
+type Environment = "development" | "production" | "staging";
+
+type Configurations = Record<
+  Environment,
+  {
+      apiBaseUrl:string;
+      timeout:number;
+  }
+  >;
+
+const configurations: Configurations = {
+development: {
+  apiBaseUrl: "http://localhost:8080",
+  timeout: 5000,
+},
+production: {
+  apiBaseUrl: "https://api.example.com",
+  timeout: 10000,
+},
+staging: {
+  apiBaseUrl: "https://staging.example.com",
+  timeout: 8000,
+},
+// @ts-expect-error
+
+notAllowed: {
+  apiBaseUrl: "https://staging.example.com",
+  timeout: 8000,
+},
+};
 
