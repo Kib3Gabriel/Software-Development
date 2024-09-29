@@ -393,3 +393,9 @@ interface AnotherAlbum {
 }
 
 
+type PartialAlbum = Partial<AnotherAlbum>
+const updateAlbum = (album: PartialAlbum) => {
+    // ...
+  };
+  
+  updateAlbum({ title: "Geogaddi", artist: "Boards of Canada" });
