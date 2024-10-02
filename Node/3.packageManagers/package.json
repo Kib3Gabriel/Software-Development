@@ -1,0 +1,21 @@
+{
+  "name": "3.packagemanagers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "nodemon first.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "pnpm": "^9.11.0"
+  }
+}

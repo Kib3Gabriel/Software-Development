@@ -1,0 +1,19 @@
+npm = node package manager
+
+
+
+
+what's the purpose of the package json.
+holds all the infomation about all packages needed to run that project
+npm init -y
+
+
+what is the packagelock file
+
+
+//common npm commands
+npm install or pnm install
+
+
+
+npm install -g express-generator
