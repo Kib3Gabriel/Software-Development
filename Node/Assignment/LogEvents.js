@@ -43,7 +43,7 @@
 
 
 
-//uuid package, is used to generate universally unique identifiers
+
 const fs = require('fs');
 const path = require('path')
 const uuid = require("uuid");
