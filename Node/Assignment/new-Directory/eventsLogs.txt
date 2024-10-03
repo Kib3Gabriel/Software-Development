@@ -1,6 +1,0 @@
-Log: 64be80ff-3e2f-4e18-ba47-34b72fd13191  
-Date: 2024-10-02 00:56:41 
-Message : Logged event successfully... 
-Log: baf9b30f-7ef7-4697-a26b-b4d74f6e6c62  
-Date: 2024-10-02 01:11:00 
-Message : Logged event successfully... 
