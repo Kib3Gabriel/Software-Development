@@ -1,4 +1,4 @@
-import {parsedData} from '../parseJson/parseJson';
+import {parsedData} from './parseJson';
 type test = Expect<
   Equal<
     typeof parsedData,
