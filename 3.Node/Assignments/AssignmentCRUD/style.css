@@ -34,6 +34,15 @@ h2.heading {
   font-size: 30px;
   transition: color 0.3s ease, transform 0.3s ease;
 }
+
+.cart-newEvent{
+  display: flex;
+  justify-content: center;
+}
+.cart-newEvent .newEvent{
+  margin-right: 40px;
+}
+
 .fa-cart-shopping:hover {
   color: #218838;
   cursor: pointer;
@@ -42,7 +51,7 @@ h2.heading {
 
 .filter-option {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .filterByPrice,
@@ -59,7 +68,7 @@ h2.heading {
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-.filterBtn,.reset-btn,.addItems {
+.filterBtn,.reset-btn,.addItems{
   background-color: #013872;
   color: white;
   width: 80px;
@@ -78,6 +87,11 @@ h2.heading {
   transform: scale(1.05);
 }
 
+.newEvent{
+  border: none;
+  font-size: 15px;
+  margin-right: 1px;
+}
 .product-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -114,7 +128,7 @@ h2.heading {
   font-weight: bold;
 }
 
-.btnBuy {
+.btnBuy,.newEvent {
   align-self: center;
   padding: 7px 10px;
   background-color: #28a745;
@@ -124,7 +138,7 @@ h2.heading {
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s;
 }
-.btnBuy:hover, .btnEdit:hover {
+.btnBuy:hover, .btnEdit:hover,.newEvent:hover {
   background-color: #218838;
   transform: scale(1.05);
   color: white;

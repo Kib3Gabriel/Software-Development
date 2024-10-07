@@ -2,109 +2,107 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>DOM manipulation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>DOM manipulation</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="main">
+  <div class="main">
+    <!-- Create Event Modal -->
+    <div id="createModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeCreateModal">&times;</span>
+        <h2>Create New Event</h2>
+        <form id="createEventForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
 
+          <label for="imageUrl">Image URL:</label>
+          <input type="text" id="imageUrl" name="imageUrl" required />
 
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required />
 
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required />
 
-        <!-- Create Event Modal -->
-        <div id="createModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeCreateModal">&times;</span>
-                <h2>Create New Event</h2>
-                <form id="createEventForm">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required />
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required />
 
-                    <label for="imageUrl">Image URL:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" required />
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required />
 
-                    <label for="price">Price:</label>
-                    <input type="number" id="price" name="price" required />
-
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required />
-
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="location" required />
-
-                    <label for="company">Company:</label>
-                    <input type="text" id="company" name="company" required />
-
-                    <button type="submit">Create Event</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Update Event Modal -->
-        <div id="updateModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="closeUpdateModal">&times;</span>
-                <h2>Edit Event</h2>
-                <form id="updateEventForm">
-                    <label for="title">Title:</label>
-                    <input type="text" id="title" name="title" required />
-
-                    <label for="imageUrl">Image URL:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" required />
-
-                    <label for="price">Price:</label>
-                    <input type="number" id="price" name="price" required />
-
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date" required />
-
-                    <label for="location">Location:</label>
-                    <input type="text" id="location" name="location" required />
-
-                    <label for="company">Company:</label>
-                    <input type="text" id="company" name="company" required />
-
-                    <button type="submit">Update Event</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Notification -->
-        <div id="notification" class="notification"></div>
-
-
-        <h2 class="heading">Event</h2>
-        <div class="filter-cart">
-            <div class="filter-option">
-                <input class="filterByPrice" type="number" placeholder="Filter by price">
-                <input class="filterByLocation" type="text" placeholder="Filter by location">
-                <!-- <input class="filterByDate" type="date" placeholder="Filter by date"> -->
-                <button class="filterBtn">Apply Filter</button>
-                <button class="reset-btn">Reset</button>
-                <button class="newEvent" id="newEvent">Create new Event</button>
-            </div>
-            <!-- <button class="cart-btn"><a href="#cart-container">Cart</a></button> -->
-            <a href="#cart-container"><i class="fa-solid fa-cart-shopping"></i></a></i>
-        </div>
-        <div class="product-container">
-
-        </div>
-
-        <div id="cart-container">
-            <h2>Cart</h2>
-            <div id="cart-list">
-            </div>
-            <p id="total-price">Total: $0.00</p>
-        </div>
+          <button type="submit">Create Event</button>
+        </form>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Update Event Modal -->
+    <div id="updateModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeUpdateModal">&times;</span>
+        <h2>Edit Event</h2>
+        <form id="updateEventForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="imageUrl">Image URL:</label>
+          <input type="text" id="imageUrl" name="imageUrl" required />
+
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required />
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required />
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required />
+
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required />
+
+          <button type="submit">Update Event</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <h2 class="heading">Event</h2>
+    <div class="filter-cart">
+      <div class="filter-option">
+        <input class="filterByPrice" type="number" placeholder="Filter by price">
+        <input class="filterByLocation" type="text" placeholder="Filter by location">
+        <!-- <input class="filterByDate" type="date" placeholder="Filter by date"> -->
+        <button class="filterBtn">Apply Filter</button>
+        <button class="reset-btn">Reset</button>
+      </div>
+      
+      <div class="cart-newEvent">
+        <button class="newEvent" id="newEvent">Create new Event</button>
+      <!-- <button class="cart-btn"><a href="#cart-container">Cart</a></button> -->
+      <a href="#cart-container"><i class="fa-solid fa-cart-shopping"></i></a></i>
+      </div>
+    </div>
+    <div class="product-container">
+
+    </div>
+
+    <div id="cart-container">
+      <h2>Cart</h2>
+      <div id="cart-list">
+      </div>
+      <p id="total-price">Total: $0.00</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>

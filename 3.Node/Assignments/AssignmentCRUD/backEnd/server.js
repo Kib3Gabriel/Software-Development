@@ -1,5 +1,5 @@
 import http from 'http';
-import chalk from 'chalk'
+// import chalk from 'chalk'
 import routes from './router.js'; // Ensure the file name matches
 
 const PORT = 3003;
@@ -24,5 +24,5 @@ const server = http.createServer((req, res) => {
 
 // Start the server
 server.listen(PORT, () => {
-  console.log(chalk.red(`Server is running on http://localhost:${PORT}`));
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

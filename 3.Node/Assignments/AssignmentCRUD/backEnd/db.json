@@ -4,19 +4,10 @@
       "id": 1,
       "title": "Comic Con",
       "imageUrl": "https://images.unsplash.com/photo-1618519764620-7403abdbdfe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "price": 36,
+      "price": 40,
       "date": "2024-10-07",
       "location": "Los Angeles Convention Center",
       "company": "Comic Con International"
-    },
-    {
-      "id": 2,
-      "imageUrl": "https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "title": "Food and Wine Expo",
-      "price": 75,
-      "date": "September 25, 2021",
-      "location": "Moscone Center, San Francisco",
-      "company": "Food and Wine Events LLC"
     },
     {
       "id": 4,
@@ -29,10 +20,10 @@
     },
     {
       "id": 5,
-      "imageUrl": "https://plus.unsplash.com/premium_photo-1661766479722-ddedc5dce339?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
       "title": "Holiday Market",
-      "price": 5,
-      "date": "December 3, 2021",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1661766479722-ddedc5dce339?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+      "price": 35,
+      "date": "2024-10-07",
       "location": "Union Square, New York City",
       "company": "Holiday Markets Inc."
     },
@@ -80,6 +71,24 @@
       "date": "May 20-22, 2022",
       "location": "McCormick Place, Chicago",
       "company": "Google"
+    },
+    {
+      "id": 12,
+      "title": "Comic Con",
+      "imageUrl": "https://images.unsplash.com/photo-1618519764620-7403abdbdfe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "price": 67,
+      "date": "2024-10-07",
+      "location": "Los Angeles Convention Center",
+      "company": "Comic Con International"
+    },
+    {
+      "id": 13,
+      "title": "BMW E30",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0161/4694/files/IMG_1925_Large_d8d5f001-a2ca-43e3-be52-49cd685bb39b_600x600.jpg?v=1663960148",
+      "price": 45000,
+      "date": "2024-09-30",
+      "location": "Nyeri",
+      "company": "The Jitu"
     }
   ]
 }
