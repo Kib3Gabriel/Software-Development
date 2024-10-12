@@ -76,6 +76,45 @@ app.post('/register', async (req: Request<{}, {}, RegistrationRequest>, res: Res
     }
 });
 
+// PUT
+app.put ('update/:email', async(req:Request, res:Response)=>{
+    const updateEmail:string = req.params.email.toLowerCase();
+    const {password, name} = req.body;
+
+
+    if(!password || name){
+        res.status(400).json({message:"All fields are required"});
+        return;
+    }
+
+    const client = getXataClient();
+
+    try{
+        const personData = await client.db.personInfo.filter({email:updateEmail}).getFirst();
+
+        if(personData){
+
+            const {xata_id} = personData;
+
+            // update user's data in the xata db
+            await client.db.personInfo.update(xata_id!, {
+                password:password,
+                name                
+            });
+            res.status(200).json({message:'User update successfully'});
+        }else{
+            res.status(404).json({message:'User not found'});
+        }
+    }catch(error){
+        console.log(`Error updating user with the email ${updateEmail} : ${error}`);
+        res.status(500).json({message:"Server error"})
+    }
+})
+
+
+
+
+
 // DELETE endpoint to remove a user by email
 app.delete('/user/:email', async (req: Request, res: Response) => {
     const userEmail: string = req.params.email.toLowerCase();
