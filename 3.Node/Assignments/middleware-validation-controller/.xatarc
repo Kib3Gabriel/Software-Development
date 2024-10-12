@@ -1,0 +1,6 @@
+{
+  "databaseURL": "https://Gabriel254-s-workspace-cvhlb9.us-east-1.xata.sh/db/simpleDB",
+  "codegen": {
+    "output": "src/xata.ts"
+  }
+}
