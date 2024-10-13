@@ -27,7 +27,7 @@ class CustomError extends Error {
 
   constructor(message: string, status?: number) {
     super(message);
-    this.status = status || 500; // Default status code is 500 if not provided
+    this.status = status || 500; 
   }
 }
 
