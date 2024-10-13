@@ -20,7 +20,7 @@ export const getUserById = async (req: Request, res: Response, next: NextFunctio
     const person = await client.db.userInfo.filter({ person_id }).getFirst();
 
     if (!person) {
-      next(new CustomError('Invalid ID format. ID must be a number', 400));
+      next(new CustomError('User not found with the provided ID', 400));
     } else {
       res.json(person);
     }
