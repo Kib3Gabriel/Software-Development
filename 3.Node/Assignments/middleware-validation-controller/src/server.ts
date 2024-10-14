@@ -15,24 +15,18 @@ const app= express();
 //middleware to parse JSON bodies
 app.use(express.json()); 
 
-//Define an interface for the request body
 interface RegistrationRequest{
     name:string;
     email:string;
     password:string;
     person_id:number;
 }
-
-
 app.get('/', (req:Request, res:Response)=>{
     res.send('Server working ...')
 });
 
 app.use(router);
 app.use(errorHandler);
-
-
-
 
 app.listen(PORT, async() =>{
     console.log(`Server is running at http://localhost:${PORT}`);

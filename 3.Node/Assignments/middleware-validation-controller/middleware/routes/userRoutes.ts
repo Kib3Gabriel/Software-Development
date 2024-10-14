@@ -12,6 +12,5 @@ router.post('/register', validateRegistration, registerUser);
 router.put('/update/:id', validateUpdate, updateUser);
 
 router.delete('/users/:id', deleteUser);
-// router.patch('/users/:id', updateUserValidator, patchUser);
 
 export {router};
