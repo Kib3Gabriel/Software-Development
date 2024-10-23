@@ -12,7 +12,7 @@ const client = getXataClient();
 
 dotenv.config();
 const app= express();
-//middleware to parse JSON bodies
+
 app.use(express.json()); 
 
 interface RegistrationRequest{
